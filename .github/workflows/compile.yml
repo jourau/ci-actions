@@ -9,12 +9,10 @@ jobs:
   compileit:
     name: Compile kernel
     runs-on: ubuntu-latest
-    arch: AARCH64
-    compiler: gcc
     steps:
       - uses: actions/checkout@v2
       - uses: jourau/ci-actions/standalone-kernel@master
         with:
-          ARCH: ${{ matrix.arch }}
-          COMPILER: ${{ matrix.compiler }}
+          ARCH: AARCH64
+          COMPILER: gcc
 
