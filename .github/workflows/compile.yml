@@ -3,27 +3,25 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 name: Compile
-
 on: 
   workflow_dispatch:
     branches:
       - master
-
 jobs:
-    compile:
-      name: Compile kernel
-      runs-on: ubuntu-latest
-      fail-fast: false
-      matrix:
-        arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
-        compiler: [gcc, llvm]
-        exclude:
-          # llvm RISCV64 compilation is not currently supported
-          - arch: RISCV64
-            compiler: llvm
-    steps:
-      - uses: actions/checkout@v2
-      - uses: jourau/ci-actions/standalone-kernel@master
-        with:
-          ARCH: ${{ matrix.arch }}
-          COMPILER: ${{ matrix.compiler }}
+  compile:
+    name: Compile kernel
+    runs-on: ubuntu-latest
+    fail-fast: false
+    matrix:
+      arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
+      compiler: [gcc, llvm]
+      exclude:
+        # llvm RISCV64 compilation is not currently supported
+        - arch: RISCV64
+          compiler: llvm
+  steps:
+    - uses: actions/checkout@v2
+    - uses: jourau/ci-actions/standalone-kernel@master
+      with:
+        ARCH: ${{ matrix.arch }}
+        COMPILER: ${{ matrix.compiler }}
