@@ -6,10 +6,21 @@ name: Compile
 on: 
   workflow_dispatch:
 jobs:
-  bump-version:
-    name: Bump Package Version
+  compileit:
+    name: Compile kernel
     runs-on: ubuntu-latest
+    fail-fast: false
+    matrix:
+      arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
+      compiler: [gcc, llvm]
+      exclude:
+        # llvm RISCV64 compilation is not currently supported
+        - arch: RISCV64
+          compiler: llvm
     steps:
-      - name: Example variable usage
-        run: echo ${{ github.event.inputs.version }}
+      - uses: actions/checkout@v2
+      - uses: jourau/ci-actions/standalone-kernel@master
+        with:
+          ARCH: ${{ matrix.arch }}
+          COMPILER: ${{ matrix.compiler }}
 
