@@ -8,16 +8,4 @@ on:
     branches:
       - master
 jobs:
-  compiler:
-    name: Compile kernel
-    runs-on: ubuntu-latest
-    fail-fast: false
-    matrix:
-      arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
-      compiler: [gcc, llvm]
-      exclude:
-        # llvm RISCV64 compilation is not currently supported
-        - arch: RISCV64
-          compiler: llvm
-
 
