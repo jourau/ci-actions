@@ -8,10 +8,16 @@ on:
     branches:
       - master
 jobs:
-  bump-version:
-    name: Bump Package Version
+  compile:
+    name: Compile kernel
     runs-on: ubuntu-latest
-    steps:
-      - name: Example variable usage
-        run: echo ${{ github.event.inputs.version }}
+    fail-fast: false
+    matrix:
+      arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
+      compiler: [gcc, llvm]
+      exclude:
+        # llvm RISCV64 compilation is not currently supported
+        - arch: RISCV64
+          compiler: llvm
+
 
