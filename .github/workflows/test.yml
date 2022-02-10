@@ -2,10 +2,11 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-name: Compile
+name: Test
 on: 
   workflow_dispatch:
     branches:
       - master
 jobs:
+  step1:
 
