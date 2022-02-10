@@ -52,4 +52,3 @@ See the file [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 See the directory [LICENSES/](LICENSES/) for a list of the licenses used in this
 repository, and the SPDX tag in file headers for the license of each file.
 
-
