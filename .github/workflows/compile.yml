@@ -9,7 +9,7 @@ jobs:
   compileit:
     name: Compile kernel
     runs-on: ubuntu-latest
-    matrix:
+    array:
       arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
       compiler: [gcc, llvm]
       exclude:
