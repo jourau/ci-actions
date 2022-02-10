@@ -9,13 +9,8 @@ jobs:
   compileit:
     name: Compile kernel
     runs-on: ubuntu-latest
-      matrix:
-        arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
-        compiler: [gcc, llvm]
-        exclude:
-          # llvm RISCV64 compilation is not currently supported
-          - arch: RISCV64
-            compiler: llvm
+    arch: AARCH64
+    compiler: gcc
     steps:
       - uses: actions/checkout@v2
       - uses: jourau/ci-actions/standalone-kernel@master
