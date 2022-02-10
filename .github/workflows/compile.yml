@@ -1,0 +1,26 @@
+# Copyright 2020, Data61, CSIRO (ABN 41 687 119 230)
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
+name: manual
+on: 
+  workflow_dispatch:
+
+jobs:
+    name: Compile kernel
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [ARM, ARM_HYP, AARCH64, RISCV64, X64]
+        compiler: [gcc, llvm]
+        exclude:
+          # llvm RISCV64 compilation is not currently supported
+          - arch: RISCV64
+            compiler: llvm
+    steps:
+    - uses: actions/checkout@v2
+    - uses: seL4/ci-actions/standalone-kernel@master
+      with:
+        ARCH: ${{ matrix.arch }}
+        COMPILER: ${{ matrix.compiler }}
