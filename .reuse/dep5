@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ci-actions
 Upstream-Contact: seL4 foundation
-Source: https://github.com/seL4/ci-actions
+Source: https://github.com/jourau/ci-actions
 
 # Sample paragraph, commented out:
 

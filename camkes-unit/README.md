@@ -31,7 +31,7 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/camkes-unit@master
+    - uses: jourau/ci-actions/camkes-unit@master
 ```
 
 ## Build

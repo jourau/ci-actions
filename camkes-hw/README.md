@@ -68,7 +68,7 @@ jobs:
             - PC99
             - TX2
     steps:
-    - uses: seL4/ci-actions/camkes-test@master
+    - uses: jourau/ci-actions/camkes-test@master
       with:
         xml: ${{ needs.code.outputs.xml }}
         platform: ${{ matrix.platform }}
@@ -100,7 +100,7 @@ jobs:
         with:
           name: images-${{ matrix.platform }}
       - name: Run
-        uses: seL4/ci-actions/camkes-hw@master
+        uses: jourau/ci-actions/camkes-hw@master
         with:
           platform: ${{ matrix.platform }}
           index: $${{ strategy.job-index }}

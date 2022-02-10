@@ -33,7 +33,7 @@ jobs:
     name: Shell
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/bashisms@master
+    - uses: jourau/ci-actions/bashisms@master
 ```
 
 ### Maintenance

@@ -56,7 +56,7 @@ jobs:
     - matrix:
         name:
             - optiplex9020
-    - uses: seL4/ci-actions/camkes-vm@master
+    - uses: jourau/ci-actions/camkes-vm@master
       with:
         name: ${{ matrix.name }}
     - name: Upload images
@@ -86,7 +86,7 @@ jobs:
         with:
           name: images-${{ matrix.name }}
       - name: Run
-        uses: seL4/ci-actions/camkes-hw@master
+        uses: jourau/ci-actions/camkes-hw@master
         with:
           name: ${{ matrix.name }}
           index: $${{ strategy.job-index }}

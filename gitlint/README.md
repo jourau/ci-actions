@@ -28,7 +28,7 @@ just calls this script.
 Example:
 
 ```yaml
-    - uses: seL4/ci-actions/gitlint@master
+    - uses: jourau/ci-actions/gitlint@master
       with:
         config: ./misc/my-gitlint-config
 ```
@@ -48,5 +48,5 @@ jobs:
     name: Gitlint
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/gitlint@master
+    - uses: jourau/ci-actions/gitlint@master
 ```

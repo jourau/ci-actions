@@ -61,7 +61,7 @@ jobs:
       matrix:
         arch: [ARM, ARM_HYP, RISCV64, X64]
     steps:
-    - uses: seL4/ci-actions/aws-proofs@master
+    - uses: jourau/ci-actions/aws-proofs@master
       with:
         L4V_ARCH: ${{ matrix.arch }}
       env:

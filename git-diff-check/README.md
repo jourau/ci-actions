@@ -31,5 +31,5 @@ jobs:
     name: 'Trailing Whitepace Check'
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/git-diff-check@master
+    - uses: jourau/ci-actions/git-diff-check@master
 ```

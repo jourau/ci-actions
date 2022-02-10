@@ -52,7 +52,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/camkes-vm@master
+    - uses: jourau/ci-actions/camkes-vm@master
       with:
         name: optiplex9020
 ```

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seL4/ci-actions.git"
+    "url": "git+https://github.com/jourau/ci-actions.git"
   },
   "author": "Curtis Millar <curtis.millar@data61.csiro.au>",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/seL4/ci-actions/issues"
+    "url": "https://github.com/jourau/ci-actions/issues"
   },
-  "homepage": "https://github.com/seL4/ci-actions#readme",
+  "homepage": "https://github.com/jourau/ci-actions#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0"

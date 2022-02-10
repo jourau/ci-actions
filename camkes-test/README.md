@@ -54,5 +54,5 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/camkes-test@master
+    - uses: jourau/ci-actions/camkes-test@master
 ```

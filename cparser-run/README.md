@@ -48,5 +48,5 @@ jobs:
     name: C Parser
     runs-on: ubuntu-latest
     steps:
-    - uses: seL4/ci-actions/cparser-run@master
+    - uses: jourau/ci-actions/cparser-run@master
 ```
