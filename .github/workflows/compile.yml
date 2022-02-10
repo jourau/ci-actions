@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-name: manual
+name: compile
 on: 
   workflow_dispatch:
 
