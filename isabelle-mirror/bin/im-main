@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# Copyright 2016, Data61, CSIRO
+#
+# SPDX-License-Identifier: BSD-2-Clause
+#
+# Wrapper script to call isabelle-mirror.sh in a sensible way,
+# with local copies of upstream and mirror repositories.
+#
+# Usage: im-env <base-dir> im-main <mirror-root>
+#
+# where:
+# - base-dir: Absolute path to a checkout of this repository.
+# - mirror-root: Base URL for all git mirror target repos.
+
+# Bash 'strict' mode.
+set -euo pipefail
+IFS=$'\n\t'
+
+IM_MIRROR_URL_BASE="$1"
+
+if [ -z "$IM_DIR" ]; then
+  echo "im-main: fatal: IM_DIR environment was not set" >&2
+  exit 1
+fi
+
+if [ -z "$IM_MIRROR_URL_BASE" ]; then
+  echo "im-main: fatal: I wasn't given a base URL for mirror repositories"
+  exit 1
+fi
+
+ISA_AFP_BASE="https://foss.heptapod.net/isa-afp"
+
+im-fetch-upstream-hg    isabelle         "http://isabelle.in.tum.de/repos/isabelle"
+
+im-fetch-downstream-git isabelle-mirror  "$IM_MIRROR_URL_BASE/sel4/isabelle.git"
+
+im-mirror-here          isabelle         isabelle-mirror master
+
+im-push-downstream-git  isabelle-mirror  master
+
+printf "isabelle-mirror: done!\n"

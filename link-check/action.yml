@@ -1,0 +1,38 @@
+# Copyright 2020, Data61, CSIRO (ABN 41 687 119 230)
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
+name: 'Link Check'
+description: 'Check links in .md and .html files'
+author: Gerwin Klein <kleing@unsw.edu.au>
+
+inputs:
+  dir:
+    description: 'Directory to check (recursively)'
+    default: .
+    required: false
+  exclude:
+    description: 'grep regex on path for which files to exclude'
+    required: false
+  exclude_urls:
+    description: 'regex which URLs to exclude'
+    required: false
+  timeout:
+    description: 'Timeout for link response'
+    required: false
+  doc_root:
+    description: 'Document root for absolute links'
+    required: false
+  num_requests:
+    description: 'Maximum number of concurrent requests'
+    required: false
+  token:
+    description: 'GitHub token for read access to repository'
+    required: false
+  verbose:
+    description: 'Print more information if set (default unset)'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'docker://sel4/link-check:latest'

@@ -1,0 +1,56 @@
+# Copyright 2021, Proofcraft Pty Ltd
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
+name: 'AWS Proofs'
+description: |
+  Runs the l4v proofs on AWS.
+author: Gerwin Klein <gerwin.klein@proofcfraft.systems>
+
+inputs:
+  L4V_ARCH:
+    description: 'Architecture to test. One of ARM, ARM_HYP, RISCV64, X64'
+    required: true
+  session:
+    description: 'Which proof session to run (space-separated string)'
+    required: false
+  isa_branch:
+    description: 'Which branch/tag of the isabelle repository to use'
+    required: false
+  cache_read:
+    description: 'Read Isabelle image cache from S3. Set to empty string to skip.'
+    default: 'true'
+    required: false
+  cache_write:
+    description: 'Write Isabelle image cache to S3. Set to empty string to skip.'
+    default: 'true'
+    required: false
+  cache_name:
+    description: 'Custom cache name. Should contain at least L4V_ARCH.'
+    required: false
+  cache_bucket:
+    description: 'Custom S3 bucket for the isabelle image cache.'
+    default: 'isabelle-images'
+    required: false
+  skip_dups:
+    description: 'Skip duplicate proofs. Set to empty string to run duplicate proofs'
+    default: "1"
+    required: false
+  manifest:
+    description: "Which manifest file to use (default devel.xml)"
+    required: false
+  xml:
+    description: 'Input manifest with specific repo revisions to test (optional)'
+    required: false
+  token:
+    description: 'Github token for repo read access'
+    required: false
+  action_name:
+    description: 'internal -- do not use'
+    required: false
+    default: 'aws-proofs'
+
+runs:
+  using: 'node12'
+  main: '../js/index.js'
+  post: '../js/post.js'
