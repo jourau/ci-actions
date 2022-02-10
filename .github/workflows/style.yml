@@ -1,0 +1,14 @@
+name: Style
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  style:
+    name: Style Check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: seL4/ci-actions/style@master
