@@ -24,6 +24,7 @@ RUN \
         ninja-build \
         haskell-stack \
         git \
+	repo \
         cpio \
         sudo \
         rsync \
@@ -113,11 +114,12 @@ ENV WORKSPACE=/workspace
 
 WORKDIR /workspace
 
-CMD ["ls", "-l"]
-
-CMD ["cat", "Makefile"]
-
-CMD ["make", "rpi4_defconfig", "sel4test"]
-
-CMD ["ls", "-l", "rpi4_sel4test/images"]
+RUN \
+	export WORKSPACE=~/sel4 \
+	mkdir ${WORKSPACE} && cd ${WORKSPACE} \
+	repo init -u git@github.com:tiiuae/tii_sel4_manifest.git -b tii/development \
+	repo sync \
+	make rpi4_defconfig \
+	make sel4test \
+	ls -l rpi4_sel4test/images
 
