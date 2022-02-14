@@ -2,16 +2,16 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-name: Compile
+name: Nightly build
 on: 
   workflow_dispatch:
 jobs:
-  compileit:
-    name: Compile kernel
+  build:
+    name: Build it
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: jourau/ci-actions/standalone-kernel@master
+      - uses: jourau/ci-actions/nightly-build@master
         with:
           ARCH: AARCH64
           COMPILER: gcc
