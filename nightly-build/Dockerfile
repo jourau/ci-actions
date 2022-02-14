@@ -115,8 +115,6 @@ ENV WORKSPACE=/workspace
 WORKDIR /workspace
 
 RUN \
-	export WORKSPACE=~/sel4 \
-	mkdir ${WORKSPACE} && cd ${WORKSPACE} \
 	repo init -u git@github.com:tiiuae/tii_sel4_manifest.git -b tii/development \
 	repo sync \
 	make rpi4_defconfig \
