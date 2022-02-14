@@ -15,7 +15,7 @@ If no exit codes are thrown, it means that the change was able to compile succes
 
 ## Content
 
-The entry point is the script [`compile_kernel.sh`](compile_kernel.sh/)
+The entry point is the script [`nightly_build.sh`](nightly_build.sh/)
 
 ## Arguments
 
