@@ -115,9 +115,9 @@ ENV WORKSPACE=/workspace
 WORKDIR /workspace
 
 RUN \
-	repo init -u git@github.com:tiiuae/tii_sel4_manifest.git -b tii/development \
-	repo sync \
-	make rpi4_defconfig \
-	make sel4test \
+	repo init -u git@github.com:tiiuae/tii_sel4_manifest.git -b tii/development  && \
+	repo sync && \
+	make rpi4_defconfig && \
+	make sel4test && \
 	ls -l rpi4_sel4test/images
 
