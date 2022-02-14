@@ -113,4 +113,5 @@ ENV WORKSPACE=/workspace
 
 WORKDIR /workspace
 
-CMD ["make", "sel4test"]
+CMD ["make", "rpi4_defconfig", "sel4test"]
+
