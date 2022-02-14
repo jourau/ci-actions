@@ -6,7 +6,7 @@ name: Nightly build
 on: 
   workflow_dispatch:
 jobs:
-  build:
+  nightly-build:
     name: Build it
     runs-on: ubuntu-latest
     steps:
