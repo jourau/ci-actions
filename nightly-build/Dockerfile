@@ -113,5 +113,11 @@ ENV WORKSPACE=/workspace
 
 WORKDIR /workspace
 
+CMD ["ls", "-l"]
+
+CMD ["cat", "Makefile"]
+
 CMD ["make", "rpi4_defconfig", "sel4test"]
+
+CMD ["ls", "-l", "rpi4_sel4test/images"]
 
